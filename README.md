@@ -1,6 +1,6 @@
-# Hollowgraph
+# The edge agent
 
-Hollowgraph is a lightweight, single-app state graph library inspired by LangGraph. It focuses on simplicity for use with local standalone AI agents, providing an easy-to-use framework for building state-driven LLM workflows without unnecessary features for running single apps.
+The edge agent (tea) ☕ is a lightweight, single-app state graph library inspired by LangGraph. It focuses on simplicity for use with local standalone AI agents, providing an easy-to-use framework for building state-driven LLM workflows without unnecessary features for running single apps.
 
 ## Features
 
@@ -15,17 +15,17 @@ Hollowgraph is a lightweight, single-app state graph library inspired by LangGra
 
 ## Installation
 
-You can install Hollowgraph using pip:
+You can install the_edge_agent using pip:
 
 ```
-pip install git+https://github.com/fabceolin/hollowgraph.git
+pip install git+https://github.com/fabceolin/the_edge_agent.git
 ```
 
 # Quick Start
 Here's a simple example to get you started:
 
 ```
-from hollowgraph import StateGraph, START, END
+from the_edge_agent import StateGraph, START, END
 
 # Initialize the StateGraph
 graph = StateGraph({"value": int, "result": str})
@@ -106,9 +106,9 @@ A full example with LLM capabilities and fan out fan in examples can be found in
 We welcome contributions! Please see our contributing guidelines for more details.
 
 # License
-Hollowgraph is released under the MIT License. See the LICENSE file for more details.
+the_edge_agent is released under the MIT License. See the LICENSE file for more details.
 
 # Acknowledgements
-Hollowgraph is inspired by LangGraph. We thank the LangGraph team for their innovative work in the field of language model workflows.
+the_edge_agent is inspired by LangGraph. We thank the LangGraph team for their innovative work in the field of language model workflows.
 
 

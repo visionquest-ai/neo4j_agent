@@ -2,14 +2,14 @@ from setuptools import setup, find_packages
 import sys
 
 setup(
-    name="hollowgraph",
-    version="0.2.0",
+    name="the_edge_agent",
+    version="0.3.0",
     author="Fabricio Ceolin",
     author_email="fabceolin@gmail.com",
-    description="A lightweight, single-app state graph library inspired by LangGraph",
+    description="A lightweight, single-app state graph library inspired by LangGraph, to run on edge computing",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/fabceolin/sololgraph",
+    url="https://github.com/fabceolin/the_edge_agent",
     package_dir={"": "src"},
     packages=find_packages(where="src"),
     classifiers=[

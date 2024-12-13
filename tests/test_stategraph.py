@@ -5,7 +5,7 @@ import pygraphviz as pgv
 from unittest.mock import patch
 from parameterized import parameterized
 from hypothesis import given, strategies as st, settings
-from hollowgraph import StateGraph, START, END
+from the_edge_agent import StateGraph, START, END
 
 class TestStateGraph(unittest.TestCase):
 
