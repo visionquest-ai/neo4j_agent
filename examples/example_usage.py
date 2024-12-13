@@ -1,4 +1,4 @@
-from hollowgraph import StateGraph, START, END
+from the_edge_agent import StateGraph, START, END
 
 # Initialize the StateGraph
 graph = StateGraph({"value": int, "result": str})

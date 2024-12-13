@@ -1,4 +1,4 @@
-from hollowgraph import StateGraph
+from the_edge_agent import StateGraph
 
 def run_fan_out_fan_in_example():
     """
