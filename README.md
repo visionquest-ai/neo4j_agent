@@ -1,6 +1,6 @@
 # The edge agent
 
-The edge agent (tea) ☕ is a lightweight, single-app state graph library inspired by LangGraph. It focuses on simplicity for use with local standalone AI agents, providing an easy-to-use framework for building state-driven LLM workflows without unnecessary features for running single apps.
+The edge agent (tea) ☕ is a lightweight, single-app state graph library inspired by LangGraph. It focuses on simplicity for use with local standalone AI agents, providing an easy-to-use framework for building state-driven LLM workflows without unnecessary features for running local single apps.
 
 ## Features
 
