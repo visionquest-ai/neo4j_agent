@@ -5,12 +5,12 @@ import pygraphviz as pgv
 from unittest.mock import patch
 from parameterized import parameterized
 from hypothesis import given, strategies as st, settings
-from the_edge_agent import StateGraph, START, END
+import the_edge_agent as tea
 
 class TestStateGraph(unittest.TestCase):
 
     def setUp(self):
-        self.graph = StateGraph({"test": "schema"})
+        self.graph = tea.StateGraph({"test": "schema"})
 
 
     def test_init(self):
@@ -87,7 +87,7 @@ class TestStateGraph(unittest.TestCase):
         """
         self.graph.add_node("start_node")
         self.graph.set_entry_point("start_node")
-        self.assertIn("start_node", self.graph.successors(START))
+        self.assertIn("start_node", self.graph.successors(tea.START))
 
     def test_set_entry_point_nonexistent_node(self):
         """
@@ -102,7 +102,7 @@ class TestStateGraph(unittest.TestCase):
         """
         self.graph.add_node("end_node")
         self.graph.set_finish_point("end_node")
-        self.assertIn(END, self.graph.successors("end_node"))
+        self.assertIn(tea.END, self.graph.successors("end_node"))
 
     def test_set_finish_point_nonexistent_node(self):
         """
@@ -321,7 +321,7 @@ class TestStateGraph(unittest.TestCase):
         regardless of the input state.
         """
         # Create a new graph for each test run
-        graph = StateGraph(state_schema={})
+        graph = tea.StateGraph(state_schema={})
 
         graph.add_node("start", run=lambda state: {"value": sum(state.values())})
         graph.add_node("end", run=lambda state: {"result": state["value"] * 2})
@@ -420,7 +420,7 @@ class TestStateGraph(unittest.TestCase):
             raise ValueError("Test error")
 
         # Create a new graph with raise_exceptions=True
-        error_graph = StateGraph(state_schema={}, raise_exceptions=True)
+        error_graph = tea.StateGraph(state_schema={}, raise_exceptions=True)
         error_graph.add_node("error_node", run=error_func)
         error_graph.set_entry_point("error_node")
         error_graph.set_finish_point("error_node")
@@ -431,7 +431,7 @@ class TestStateGraph(unittest.TestCase):
         self.assertIn("Test error", str(context.exception))
 
         # Test the default behavior (not raising exceptions)
-        normal_graph = StateGraph(state_schema={})
+        normal_graph = tea.StateGraph(state_schema={})
         normal_graph.add_node("error_node", run=error_func)
         normal_graph.set_entry_point("error_node")
         normal_graph.set_finish_point("error_node")
@@ -572,7 +572,7 @@ class TestStateGraph(unittest.TestCase):
 
         self.graph.add_node("start", run=lambda state: state)
         self.graph.set_entry_point("start")
-        self.graph.add_conditional_edges("start", faulty_condition, {True: END, False: "start"})
+        self.graph.add_conditional_edges("start", faulty_condition, {True: tea.END, False: "start"})
 
         with self.assertRaises(ValueError):
             list(self.graph.invoke({"value": 0}))
@@ -583,7 +583,7 @@ class TestStateGraph(unittest.TestCase):
         object representing the StateGraph.
         """
         # Create a simple graph
-        self.graph = StateGraph({"test": "schema"})
+        self.graph = tea.StateGraph({"test": "schema"})
         self.graph.add_node("node1", run=lambda state: state)
         self.graph.add_node("node2", run=lambda state: {"value": state["value"] * 2})
         self.graph.set_entry_point("node1")
@@ -605,10 +605,10 @@ class TestStateGraph(unittest.TestCase):
 
         # Check that all nodes are present
         node_names = [node.get_name() for node in result.nodes()]
-        self.assertIn(START, node_names)
+        self.assertIn(tea.START, node_names)
         self.assertIn("node1", node_names)
         self.assertIn("node2", node_names)
-        self.assertIn(END, node_names)
+        self.assertIn(tea.END, node_names)
 
         # Check node attributes
         node1 = result.get_node("node1")
@@ -640,7 +640,7 @@ class TestStateGraph(unittest.TestCase):
         import os
 
         # Create a simple graph
-        self.graph = StateGraph({"test": "schema"})
+        self.graph = tea.StateGraph({"test": "schema"})
         self.graph.add_node("node1")
         self.graph.add_node("node2")
         self.graph.add_edge("node1", "node2")
@@ -909,7 +909,7 @@ class TestStateGraph(unittest.TestCase):
         self.graph.add_edge("I", "J")
         self.graph.add_edge("J", "K")
         self.graph.add_edge("K", "L")
-        self.graph.add_edge("L", END)
+        self.graph.add_edge("L", tea.END)
 
         self.graph.set_entry_point("A")
 
@@ -954,7 +954,7 @@ class TestStateGraph(unittest.TestCase):
 class TestStateGraphFanOutFanIn(unittest.TestCase):
     def setUp(self):
         # Initialize the StateGraph with an empty state schema and enable exception raising
-        self.graph = StateGraph(state_schema={}, raise_exceptions=True)
+        self.graph = tea.StateGraph(state_schema={}, raise_exceptions=True)
 
     def test_fan_out_and_fan_in(self):
         """

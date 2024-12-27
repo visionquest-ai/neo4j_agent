@@ -6,8 +6,6 @@ from concurrent.futures import ThreadPoolExecutor
 import threading
 import copy
 
-
-
 # Copyright (c) 2024 Claudionor Coelho Jr, Fabrício Ceolin
 
 START = "__start__"

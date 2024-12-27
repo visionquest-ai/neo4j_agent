@@ -1,4 +1,4 @@
-from the_edge_agent import StateGraph
+import the_edge_agent as tea
 
 def run_fan_out_fan_in_example():
     """
@@ -118,7 +118,7 @@ def run_fan_out_fan_in_example():
         return {'final_result': final_result}
 
     # Create the StateGraph instance
-    state_graph = StateGraph(state_schema={"value": int})
+    state_graph = tea.StateGraph(state_schema={"value": int})
 
     # Add nodes
     state_graph.add_node("start", run=start_run)
@@ -190,7 +190,7 @@ def build_fan_out_fan_in_example():
         return {'final_result': final_result}
 
     # Create the StateGraph instance
-    state_graph = StateGraph(state_schema={"value": int})
+    state_graph = tea.StateGraph(state_schema={"value": int})
 
     # Add nodes
     state_graph.add_node("start", run=start_run)
@@ -436,7 +436,7 @@ def run_two_flows_nested_fan_out_fan_in_example():
         return {'final_result': final_result}
 
     # Create the StateGraph instance
-    state_graph = StateGraph(state_schema={"x": int, "y": int})
+    state_graph = tea.StateGraph(state_schema={"x": int, "y": int})
 
     # Add nodes
     state_graph.add_node("start", run=start_run)

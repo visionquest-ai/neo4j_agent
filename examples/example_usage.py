@@ -1,7 +1,7 @@
-from the_edge_agent import StateGraph, START, END
+import the_edge_agent as tea
 
 # Initialize the StateGraph
-graph = StateGraph({"value": int, "result": str})
+graph = tea.StateGraph({"value": int, "result": str})
 
 # Add nodes with print statements
 def start_node(state):

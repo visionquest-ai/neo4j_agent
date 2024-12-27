@@ -1,7 +1,7 @@
-from the_edge_agent import StateGraph, START, END
+import the_edge_agent as tea
 
 # Define the graph
-graph = StateGraph({"value": int})
+graph = tea.StateGraph({"value": int})
 
 # Add nodes
 graph.add_node("start", run=lambda state: {"value": state.get("value", 0) + 1})
