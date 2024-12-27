@@ -1,5 +1,5 @@
 import openai
-from the_edge_agent import StateGraph, START, END
+import the_edge_agent as tea
 import logging
 
 # Set up logging
@@ -94,7 +94,7 @@ def create_customer_support_graph():
   └────────────────────────────────────────────────────────────────┘
     """
     logging.debug("Creating customer support graph")
-    graph = StateGraph({"customer_query": str, "category": str, "response": str, "escalate": bool})
+    graph = tea.StateGraph({"customer_query": str, "category": str, "response": str, "escalate": bool})
 
     graph.add_node("categorize", run=categorize_query)
     graph.add_node("generate_response", run=generate_response)
@@ -104,7 +104,7 @@ def create_customer_support_graph():
     graph.set_entry_point("categorize")
     graph.add_edge("categorize", "generate_response")
     graph.add_edge("generate_response", "determine_escalation")
-    graph.add_conditional_edges("determine_escalation", lambda state: state["escalate"], {True: "human_escalation", False: END})
+    graph.add_conditional_edges("determine_escalation", lambda state: state["escalate"], {True: "human_escalation", False: tea.END})
     graph.add_edge("human_escalation", "determine_escalation")
 
     return graph.compile(interrupt_before=["human_escalation"])

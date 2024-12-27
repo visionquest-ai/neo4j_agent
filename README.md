@@ -1,6 +1,8 @@
 # The edge agent
 
-The edge agent (tea) ☕ is a lightweight, single-app state graph library inspired by LangGraph. It focuses on simplicity for use with local standalone AI agents, providing an easy-to-use framework for building state-driven LLM workflows without unnecessary features for running local single apps.
+![The Edge Agent Logo](images/tea.jpeg)
+
+The Edge Agent (tea) ☕ is a lightweight, single-app state graph library inspired by LangGraph. It focuses on simplicity, making it ideal for use with local standalone AI agents, including edge computing environments. Tea provides an easy-to-use framework for building state-driven LLM workflows, avoiding unnecessary features to efficiently support local, single-app operations.
 
 ## Features
 
@@ -25,10 +27,10 @@ pip install git+https://github.com/fabceolin/the_edge_agent.git
 Here's a simple example to get you started:
 
 ```
-from the_edge_agent import StateGraph, START, END
+import the_edge_agent as tea
 
 # Initialize the StateGraph
-graph = StateGraph({"value": int, "result": str})
+graph = tea.StateGraph({"value": int, "result": str})
 
 # Add nodes with print statements
 def start_node(state):
@@ -108,7 +110,10 @@ We welcome contributions! Please see our contributing guidelines for more detail
 # License
 the_edge_agent is released under the MIT License. See the LICENSE file for more details.
 
+# Contributors
+We extend our gratitude to external contributors who have supported the_edge_agent:
+
+- **[Claudionor Coelho](https://www.linkedin.com/in/claudionor-coelho-jr-b156b01/)** ["Contributed to the idealization of the project and provided valuable feedback through test usage."]
+
 # Acknowledgements
 the_edge_agent is inspired by LangGraph. We thank the LangGraph team for their innovative work in the field of language model workflows.
-
-
