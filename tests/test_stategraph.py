@@ -7,7 +7,7 @@ from parameterized import parameterized
 from hypothesis import given, strategies as st, settings
 import the_edge_agent as tea
 
-class Testtea.StateGraph(unittest.TestCase):
+class TestStateGraph(unittest.TestCase):
 
     def setUp(self):
         self.graph = tea.StateGraph({"test": "schema"})
