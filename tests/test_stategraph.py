@@ -572,7 +572,7 @@ class TestStateGraph(unittest.TestCase):
 
         self.graph.add_node("start", run=lambda state: state)
         self.graph.set_entry_point("start")
-        self.graph.add_conditional_edges("start", faulty_condition, {True: END, False: "start"})
+        self.graph.add_conditional_edges("start", faulty_condition, {True: tea.END, False: "start"})
 
         with self.assertRaises(ValueError):
             list(self.graph.invoke({"value": 0}))
@@ -909,7 +909,7 @@ class TestStateGraph(unittest.TestCase):
         self.graph.add_edge("I", "J")
         self.graph.add_edge("J", "K")
         self.graph.add_edge("K", "L")
-        self.graph.add_edge("L", END)
+        self.graph.add_edge("L", tea.END)
 
         self.graph.set_entry_point("A")
 
