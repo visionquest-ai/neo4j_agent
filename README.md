@@ -113,7 +113,7 @@ the_edge_agent is released under the MIT License. See the LICENSE file for more 
 # Contributors
 We extend our gratitude to external contributors who have supported the_edge_agent:
 
-- **[Claudionor Coelho](https://www.linkedin.com/in/claudionor-coelho-jr-b156b01/)** ["Contributed to the idealization of the project and provided valuable feedback through test usage."]
+- **[Claudionor Coelho](https://www.linkedin.com/in/claudionor-coelho-jr-b156b01/)** : Contributed to the idealization of the project and provided valuable feedback through test usage.
 
 # Acknowledgements
 the_edge_agent is inspired by LangGraph. We thank the LangGraph team for their innovative work in the field of language model workflows.
